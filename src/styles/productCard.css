@@ -1,0 +1,249 @@
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Imagen */
+.product-card-image-link {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+.product-image-container {
+  position: relative;
+  padding-top: 75%; /* Ratio 4:3 */
+  overflow: hidden;
+  background: #f5f0eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.2s ease;
+}
+
+.product-card-image-link:hover .product-image {
+  transform: scale(1.04);
+}
+
+/* Badges sobre la imagen */
+.product-offer-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  background: #d9381e; /* Ajustado para mejor contraste */
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.product-out-of-stock-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 1;
+  width: max-content;
+}
+
+/* Contenedor de Información */
+.product-info {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  color: #6e6156; /* Optimizado de #999 para cumplir contraste WCAG */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Enlace del Título */
+.product-name {
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.product-title-link {
+  color: #4a3728;
+  text-decoration: none;
+}
+
+.product-title-link:hover {
+  color: #5c4535;
+  text-decoration: underline;
+}
+
+.product-title-link:focus-visible {
+  outline: 2px dashed #4a3728;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.product-scent {
+  font-size: 0.9rem;
+  color: #6e6156; /* Optimizado de #7a6a5e para mejor lectura */
+  margin: 0;
+}
+
+/* Precios */
+.product-prices {
+  margin: 0.2rem 0;
+}
+
+.product-price-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4a3728;
+}
+
+.product-price-old {
+  font-size: 0.95rem;
+  color: #727272; /* Optimizado de #999 para legibilidad con línea tachada */
+  text-decoration: line-through;
+}
+
+.product-price-offer {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #d9381e; /* Ajustado por contraste accesible */
+}
+
+/* Stock */
+.product-stock-info {
+  margin: 0.2rem 0;
+}
+
+.stock-status {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.stock-status.in-stock {
+  color: #1e7e34; /* Verde optimizado */
+}
+
+.stock-status.out-of-stock {
+  color: #d9381e; /* Rojo optimizado */
+}
+
+/* Botón Añadir al carrito */
+.add-to-cart-btn {
+  margin-top: auto;
+  padding: 0.75rem;
+  background: #4a3728;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: #5c4535;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 55, 40, 0.25);
+}
+
+.add-to-cart-btn:focus-visible {
+  outline: 2px dashed #4a3728;
+  outline-offset: 4px;
+}
+
+.add-to-cart-btn:disabled {
+  background: #d6d6d6;
+  color: #6e6156;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.add-to-cart-btn.added {
+  background: #1e7e34;
+}
+
+/* --- Ocultación para Lectores de Pantalla --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+
+@media (max-width: 480px) {
+  .product-info {
+    padding: 1rem;
+    gap: 0.4rem;
+  }
+
+  .product-name {
+    font-size: 0.95rem;
+  }
+
+  .product-price,
+  .product-price-offer {
+    font-size: 1.15rem;
+  }
+
+  .product-price-old {
+    font-size: 0.85rem;
+  }
+
+  .add-to-cart-btn {
+    font-size: 0.85rem;
+    padding: 0.65rem;
+  }
+}

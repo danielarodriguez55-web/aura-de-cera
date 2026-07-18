@@ -1,0 +1,154 @@
+.not-found-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+}
+
+/* Cambio del contenedor de un div plano a la etiqueta semántica main */
+main.not-found-container {
+  text-align: center;
+  max-width: 540px;
+  width: 100%;
+  background: white;
+  padding: 3.5rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(74, 55, 40, 0.08);
+}
+
+.not-found-icon {
+  font-size: 45rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+main.not-found-container h1 {
+  font-size: 6rem;
+  color: #4a3728;
+  margin: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+main.not-found-container h2 {
+  color: #4a3728;
+  margin: 0.75rem 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Adaptado a la nueva clase del párrafo descriptivo */
+.not-found-description {
+  color: #7a6a5e;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Acciones en fila con espaciado consistente en escritorio */
+.not-found-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.home-link,
+.catalog-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  flex: 1; /* Permite que ambos botones compartan el espacio equitativamente */
+  min-width: 160px;
+}
+
+.home-link {
+  background: #4a3728;
+  color: white;
+}
+
+.home-link:hover {
+  background: #5c4535;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 55, 40, 0.2);
+}
+
+.catalog-link {
+  background: #f0e6dc;
+  color: #4a3728;
+  border: 1px solid #e0d6cc;
+}
+
+.catalog-link:hover {
+  background: #e8ddd0;
+  transform: translateY(-1px);
+}
+
+.not-found-help {
+  font-size: 0.9rem;
+  color: #7a6a5e;
+  margin: 0;
+  border-top: 1px solid #f5f0eb;
+  padding-top: 1.5rem;
+}
+
+.not-found-help a {
+  color: #4a3728;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.not-found-help a:hover {
+  color: #8b6b4f;
+  text-decoration: underline;
+}
+
+/* --- Adaptabilidad Móvil (Responsive) --- */
+
+@media (max-width: 560px) {
+  main.not-found-container {
+    padding: 2.5rem 1.5rem;
+    box-shadow: none; /* Simplifica la UI en pantallas muy compactas */
+    background: transparent;
+  }
+
+  .not-found-page {
+    background: white;
+    align-items: flex-start;
+    padding-top: 4rem;
+  }
+
+  main.not-found-container h1 {
+    font-size: 4.5rem;
+  }
+
+  main.not-found-container h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Se apilan los botones de manera vertical en teléfonos */
+  .not-found-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-link,
+  .catalog-link {
+    width: 100%;
+    flex: none;
+    padding: 0.8rem 1.5rem;
+  }
+}

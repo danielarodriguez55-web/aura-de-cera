@@ -1,0 +1,233 @@
+
+/* ==========================================================================
+   DISEÑO GENERAL DE LA PÁGINA
+   ========================================================================== */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   SECCIÓN: SOBRE NOSOTROS (ABOUT)
+   ========================================================================== */
+.about-section {
+  padding: 5rem 1.5rem; /* Espaciado más amplio para respiración visual */
+  background: #ffffff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #4a3728;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.about-content {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: #5a4a3e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Lista de Valores */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding: 0;
+  list-style: none; /* Asegura la eliminación de viñetas nativas */
+}
+
+.about-value {
+  background: #fcfaf8;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(74, 55, 40, 0.03);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  text-align: center;
+}
+
+.about-value:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(74, 55, 40, 0.08);
+}
+
+.value-icon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.about-value h4 {
+  color: #4a3728;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.about-value p {
+  font-size: 0.95rem;
+  color: #7a6a5e;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECCIÓN: PRODUCTOS DESTACADOS
+   ========================================================================== */
+.featured-section {
+  padding: 5rem 1.5rem;
+  background: #faf8f6;
+}
+
+.featured-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #4a3728;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.featured-subtitle {
+  text-align: center;
+  color: #7a6a5e;
+  font-size: 1.15rem;
+  margin-top: 0;
+  margin-bottom: 3.5rem;
+}
+
+/* Rejilla de Productos */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem; /* Ajustado para dar aire a las sombras de las tarjetas */
+}
+
+/* ==========================================================================
+   ESTADOS DE CARGA Y CONTENIDO VACÍO
+   ========================================================================== */
+.loading-spinner {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.spinner-icon {
+  font-size: 3.5rem;
+  display: inline-block;
+  animation: candle-flicker 1.8s ease-in-out infinite;
+}
+
+.loading-spinner p {
+  color: #7a6a5e;
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Sin Productos Disponibles */
+.no-products {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: #7a6a5e;
+  grid-column: 1 / -1;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 2px dashed #e8ddd0;
+}
+
+.no-products p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   ANIMACIONES CLAVE
+   ========================================================================== */
+/* Simula el parpadeo y la calidez de la llama de una vela */
+@keyframes candle-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 4px rgba(243, 156, 18, 0.4));
+  }
+  30% {
+    transform: scale(1.05) rotate(-2deg);
+    filter: drop-shadow(0 0 10px rgba(243, 156, 18, 0.8));
+  }
+  60% {
+    transform: scale(0.95) rotate(3deg);
+    filter: drop-shadow(0 0 6px rgba(243, 156, 18, 0.5));
+  }
+  80% {
+    transform: scale(1.02) rotate(-1deg);
+    filter: drop-shadow(0 0 8px rgba(243, 156, 18, 0.7));
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE (TABLETS Y MÓVILES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-section,
+  .featured-section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .about-title,
+  .featured-title {
+    font-size: 1.9rem;
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .about-values {
+    grid-template-columns: 1fr; /* Colapsa a columnas simples */
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+  
+  .about-value {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .featured-subtitle {
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}

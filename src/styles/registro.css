@@ -1,0 +1,245 @@
+.registro-page {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+}
+
+/* Ajustado al contenedor principal semántico main */
+main.registro-container {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(74, 55, 40, 0.06);
+}
+
+.registro-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.registro-header h1 {
+  font-size: 1.8rem;
+  color: #4a3728;
+  margin: 0 0 0.5rem 0;
+}
+
+.registro-header p {
+  color: #7a6a5e;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.registro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4a3728;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0d6cc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: #faf8f6;
+  color: #4a3728;
+  width: 100%;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #c4a88a;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(196, 168, 138, 0.15);
+}
+
+.form-group input:disabled {
+  opacity: 0.6;
+  background: #f1ebe4;
+  cursor: not-allowed;
+}
+
+/* Estados de Error en Inputs */
+.form-group input.error {
+  border-color: #c0392b;
+  background: #fff5f5;
+}
+
+.form-group input.error:focus {
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+/* Contraste mejorado de #999 a #6e6156 para cumplir con las guías de accesibilidad */
+.field-hint {
+  font-size: 0.78rem;
+  color: #6e6156;
+  line-height: 1.4;
+  margin-top: 0.1rem;
+}
+
+/* Envoltura para campos de contraseña */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  padding-right: 3rem;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.toggle-password-btn:hover:not(:disabled) {
+  opacity: 1;
+  background-color: rgba(74, 55, 40, 0.05);
+}
+
+.toggle-password-btn:focus-visible {
+  outline: 2px solid #c4a88a;
+}
+
+.toggle-password-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Contenedores de Feedback Global */
+.error-message {
+  background: #fdf2f2;
+  color: #c0392b;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 4px solid #c0392b;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.success-message {
+  background: #edf7ed;
+  color: #1e4620;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 4px solid #2e7d32;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Botón de Envío */
+.registro-btn {
+  padding: 0.85rem;
+  background: #4a3728;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.registro-btn:hover:not(:disabled) {
+  background: #5c4535;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 55, 40, 0.2);
+}
+
+.registro-btn:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Pie del contenedor */
+.registro-footer {
+  margin-top: 1.75rem;
+  text-align: center;
+  border-top: 1px solid #f5f0eb;
+  padding-top: 1.5rem;
+}
+
+.registro-footer p {
+  color: #7a6a5e;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.login-link {
+  color: #4a3728;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  color: #8b6b4f;
+  text-decoration: underline;
+}
+
+/* --- Adaptabilidad Móvil (Responsive) --- */
+
+@media (max-width: 480px) {
+  .registro-page {
+    background: white;
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+
+  main.registro-container {
+    padding: 1rem 0.5rem;
+    box-shadow: none;
+  }
+  
+  .registro-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .form-group input {
+    padding: 0.7rem 0.85rem;
+  }
+}

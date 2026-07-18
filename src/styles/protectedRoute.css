@@ -1,0 +1,57 @@
+.protected-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.protected-loading .loading-icon {
+  font-size: 4rem;
+  animation: protected-pulse 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Color optimizado a #6e6156 para cumplir contraste WCAG con fondos claros */
+.protected-loading p {
+  color: #6e6156;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Renombrado de animación para evitar colisiones globales */
+@keyframes protected-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* --- Accesibilidad: Respeto a preferencias del sistema --- */
+@media (prefers-reduced-motion: reduce) {
+  .protected-loading .loading-icon {
+    animation: none; /* Desactiva la animación si el usuario sufre de cinetosis o prefiere interfaces estáticas */
+  }
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+@media (max-width: 480px) {
+  .protected-loading {
+    min-height: 50vh;
+  }
+
+  .protected-loading .loading-icon {
+    font-size: 3rem;
+  }
+
+  .protected-loading p {
+    font-size: 1rem;
+  }
+}

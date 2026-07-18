@@ -1,0 +1,130 @@
+/* src/styles/global.css */
+
+/* ==========================================================================
+   SISTEMA DE DISEÑO GLOBAL - VARIABLES DE MARCA
+   ========================================================================== */
+:root {
+  /* Paleta Terrosa (Aura de Cera) */
+  --color-brand-primary: #4a3728;
+  --color-brand-primary-hover: #5c4535;
+  --color-brand-dark: #2c1f16;
+  --color-brand-accent: #c4a88a;
+  --color-brand-accent-hover: #d4b89a;
+  
+  /* Fondos y Neutros */
+  --color-bg-base: #faf8f6;
+  --color-bg-surface: #ffffff;
+  --color-bg-secondary: #f5f0eb;
+  
+  /* Tipografía */
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-text-base: #2c1f16;
+  --color-text-muted: #7a6a5e;
+  
+  /* Transiciones Estándar */
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: 0.2s ease;
+}
+
+/* ==========================================================================
+   RESETEO BASE (CSS RESET)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100%;
+}
+
+/* Estilos de Enfoque Globales para Accesibilidad (WCAG) */
+:focus-visible {
+  outline: 3px dashed var(--color-brand-accent);
+  outline-offset: 4px;
+}
+
+/* Ajustes globales de imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Evitar arrastre accidentado de imágenes */
+img[draggable="false"] {
+  user-select: none;
+}
+
+/* Enlaces por defecto */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE CONTENEDORES (SPA)
+   ========================================================================== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto; /* Empuja el footer hacia abajo de forma robusta */
+}
+
+/* Contenedor adaptativo común */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   SCROLLBAR PERSONALIZADA (Estética Coherente)
+   ========================================================================== */
+/* Motores Webkit (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: 10px; /* Un poco más cómoda para clicks y arrastres */
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-accent);
+  border: 2px solid var(--color-bg-secondary); /* Añade un espacio estético alrededor del pulgar */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-primary-hover);
+}
+
+/* Soporte Estándar Moderno (Firefox) */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: var(--color-brand-accent) var(--color-bg-secondary);
+    scrollbar-width: thin;
+  }
+}

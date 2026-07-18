@@ -1,0 +1,166 @@
+.footer {
+  background: #2c1f16;
+  color: #c4a88a;
+  padding: 3rem 1.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Contenido principal del footer */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(196, 168, 138, 0.2);
+}
+
+.footer-section h4 {
+  color: white;
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-section p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Contraste mejorado para accesibilidad de #a88a6e a #bca38a */
+.footer-tagline {
+  font-style: italic;
+  color: #bca38a;
+  font-size: 0.85rem;
+}
+
+/* Listas y enlaces de navegación/contacto */
+.footer-links,
+.footer-contact-list,
+.footer-hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-contact-list li,
+.footer-hours-list li {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Estilos de enlaces universales del footer */
+.footer-links a,
+.footer-contact-list a,
+.student-email-link {
+  color: #c4a88a;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-contact-list a:hover,
+.student-email-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-links a:hover {
+  display: inline-block;
+  transform: translateX(4px);
+}
+
+.footer-links a:focus-visible,
+.footer-contact-list a:focus-visible,
+.student-email-link:focus-visible {
+  outline: 2px dashed #c4a88a;
+  outline-offset: 4px;
+}
+
+/* Footer inferior (Información del estudiante) */
+.footer-bottom {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+/* Contraste mejorado de #a88a6e a #bca38a */
+.footer-bottom-content p {
+  margin: 0.4rem 0;
+  font-size: 0.9rem;
+  color: #bca38a;
+}
+
+.footer-bottom-content strong {
+  color: white;
+}
+
+.student-email-link strong {
+  color: #c4a88a;
+  transition: color 0.2s ease;
+}
+
+.student-email-link:hover strong {
+  color: white;
+}
+
+.footer-copy {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2.5rem 1rem 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.05rem;
+  }
+
+  .footer-section p,
+  .footer-links li,
+  .footer-contact-list li,
+  .footer-hours-list li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.75rem;
+  }
+
+  .footer-links,
+  .footer-contact-list,
+  .footer-hours-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links a:hover {
+    transform: none; /* Desactiva el desplazamiento lateral en móviles */
+  }
+
+  .footer-bottom-content p {
+    font-size: 0.85rem;
+  }
+}

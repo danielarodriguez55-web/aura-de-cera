@@ -1,0 +1,234 @@
+
+/* ==========================================================================
+   DISEÑO BASE DE LA SECCIÓN HERO
+   ========================================================================== */
+.hero {
+  background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+  padding: 5rem 1.5rem; /* Incrementado para un aire más sofisticado y premium */
+  min-height: calc(100vh - 70px); /* Ajuste dinámico considerando la altura de la Navbar */
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Ajuste sutil para dar más protagonismo al texto */
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ==========================================================================
+   BLOQUE DE TEXTOS
+   ========================================================================== */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3.8rem; /* Ligeramente aumentado para mejorar la jerarquía visual */
+  color: #4a3728;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.hero-icon {
+  font-size: 3.8rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #7a6a5e;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CARACTERÍSTICAS (Soporte para la nueva lista semántica <ul>)
+   ========================================================================== */
+.hero-features {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none; /* Quitamos los puntos por defecto de la lista */
+  padding: 0;       
+  margin: 0.5rem 0;
+}
+
+.hero-features li {
+  background: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px; /* Bordes perfectamente redondeados */
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a3728;
+  box-shadow: 0 4px 12px rgba(74, 55, 40, 0.05); /* Sombra más suave y coherente */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-features li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(74, 55, 40, 0.08);
+}
+
+.feature-icon {
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   LLAMADO A LA ACCIÓN (BOTÓN CTA)
+   ========================================================================== */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #4a3728;
+  color: #ffffff;
+  padding: 1rem 2.6rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+  width: fit-content;
+}
+
+.hero-btn:hover {
+  background: #5c4535;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(74, 55, 40, 0.25);
+}
+
+.hero-btn:focus-visible {
+  outline: 3px dashed #c4a88a;
+  outline-offset: 4px;
+}
+
+.hero-btn-arrow {
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block; /* Requerido para que la transformación de traslación funcione */
+}
+
+.hero-btn:hover .hero-btn-arrow {
+  transform: translateX(6px);
+}
+
+/* ==========================================================================
+   BLOQUE DE IMAGEN / ILUSTRACIÓN
+   ========================================================================== */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-placeholder {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  background: #ffffff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 12px 40px rgba(74, 55, 40, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.hero-image-placeholder:hover {
+  transform: scale(1.02); /* Sutil efecto interactivo al pasar el mouse */
+}
+
+.placeholder-icon {
+  font-size: 6.5rem;
+}
+
+.placeholder-text {
+  color: #4a3728;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   RESPONSIVE (TABLETS Y MÓVILES)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.25rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Colapsa a una sola columna */
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center; /* Alinea los elementos del texto al centro en pantallas móviles */
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+    justify-content: center;
+  }
+
+  .hero-icon {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-features {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .hero-features li {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .hero-image-placeholder {
+    max-width: 280px;
+  }
+
+  .placeholder-icon {
+    font-size: 4.5rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: center; /* Botón extendido a lo ancho de la pantalla móvil */
+  }
+}

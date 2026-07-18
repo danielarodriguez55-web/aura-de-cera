@@ -1,0 +1,138 @@
+.product-list-section {
+  width: 100%;
+}
+
+/* Header */
+.product-list-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.product-list-title {
+  font-size: 2.2rem;
+  color: #4a3728;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+/* Color optimizado a #6e6156 para cumplir con el contraste WCAG */
+.product-list-subtitle {
+  color: #6e6156;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Grid de Productos utilizando estructura de lista */
+.product-list-grid {
+  display: grid;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list-item {
+  margin: 0;
+  padding: 0;
+}
+
+/* Modificadores de Columnas con Fallback Responsivo Base */
+.product-list-grid.columns-2 {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.product-list-grid.columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-list-grid.columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Estado Vacío (Sin Resultados) */
+.product-list-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f5f2;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-list-empty .empty-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.product-list-empty h3 {
+  color: #4a3728;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Contraste corregido para el texto descriptivo secundario */
+.product-list-empty p {
+  color: #6e6156;
+  margin: 0;
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+
+@media (max-width: 1024px) {
+  .product-list-grid.columns-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list-title {
+    font-size: 1.8rem;
+  }
+
+  .product-list-subtitle {
+    font-size: 1rem;
+  }
+
+  .product-list-grid.columns-2,
+  .product-list-grid.columns-3,
+  .product-list-grid.columns-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  /* Forzado a grilla simple un poco antes del límite para evitar roturas de tarjetas */
+  .product-list-grid.columns-2,
+  .product-list-grid.columns-3,
+  .product-list-grid.columns-4 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .product-list-title {
+    font-size: 1.5rem;
+  }
+
+  .product-list-empty {
+    padding: 2.5rem 1rem;
+  }
+
+  .product-list-empty .empty-icon {
+    font-size: 3rem;
+  }
+
+  .product-list-empty h3 {
+    font-size: 1.2rem;
+  }
+}

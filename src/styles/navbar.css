@@ -1,0 +1,325 @@
+
+/* ==========================================================================
+   VARIABLES DE DISEÑO (Consistentes con Aura de Cera)
+   ========================================================================== */
+:root {
+  --color-primary: #4a3728;
+  --color-primary-hover: #5c4535;
+  --color-accent: #c4a88a;
+  --color-accent-hover: #d4b89a;
+  --color-text-light: rgba(255, 255, 255, 0.85);
+  --color-bg-nav: #4a3728;
+  
+  /* Estados */
+  --color-error-base: #e74c3c;
+  --color-error-bg-trans: rgba(231, 76, 60, 0.15);
+  
+  /* Animaciones y sombras */
+  --shadow-nav: 0 2px 10px rgba(0, 0, 0, 0.12);
+  --shadow-menu-mobile: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   DISEÑO BASE DEL NAVBAR
+   ========================================================================== */
+.navbar {
+  background: var(--color-bg-nav);
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-nav);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Logo */
+.navbar-logo {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
+}
+
+.navbar-logo:focus-visible {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   MENÚ DE NAVEGACIÓN (ESCRITORIO)
+   ========================================================================== */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Enlaces y contenedores internos del Menú */
+.nav-auth-links,
+.nav-user-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+/* Línea animada debajo de los enlaces */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:focus-visible {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Botón Especial de Registro */
+.register-btn-nav {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.register-btn-nav:hover {
+  background: var(--color-accent-hover);
+  color: var(--color-primary);
+}
+
+.register-btn-nav::after {
+  display: none; /* Sin línea animada de fondo */
+}
+
+/* Carrito y Badge */
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.cart-badge {
+  background: var(--color-error-base);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  animation: badge-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Usuario Activo y Logout */
+.nav-user {
+  color: var(--color-accent);
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  padding: 0.5rem 0;
+}
+
+.logout-btn:hover {
+  color: var(--color-error-base);
+}
+
+.logout-btn:focus-visible {
+  outline: 2px dashed var(--color-error-base);
+  outline-offset: 4px;
+}
+
+/* ==========================================================================
+   BOTÓN HAMBURGUESA (MÓVIL)
+   ========================================================================== */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1010;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 3px;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+/* Animaciones del menú hamburguesa al activarse */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger-btn:focus-visible {
+  outline: 2px dashed var(--color-accent);
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   ANIMACIONES CLAVE
+   ========================================================================== */
+@keyframes badge-pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================================================
+   RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
+  /* Menú desplegable móvil con transición suave */
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-nav);
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-menu-mobile);
+    flex-direction: column;
+    align-items: center;
+    
+    /* Transición fluida de opacidad y desplazamiento */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+    pointer-events: none;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-auth-links,
+  .nav-user-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0;
+    font-size: 1.05rem;
+  }
+
+  .nav-link::after {
+    display: none; /* No mostrar la línea de hover en versión móvil */
+  }
+
+  .register-btn-nav {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  .nav-user {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0 0 0;
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+    background: var(--color-error-bg-trans);
+    color: #ff8a7f;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .logout-btn:hover {
+    background: var(--color-error-base);
+    color: #ffffff;
+  }
+
+  /* Badge estático en móvil para mejor alineación */
+  .cart-link {
+    justify-content: center;
+  }
+
+  .cart-badge {
+    position: static;
+    margin-left: 0.5rem;
+    transform: none;
+  }
+}
